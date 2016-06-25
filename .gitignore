@@ -1,0 +1,6 @@
+.DS_Store
+*.meta
+Library
+Temp
+*.sln
+*.csproj
