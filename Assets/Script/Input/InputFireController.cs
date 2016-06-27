@@ -1,15 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class FireController : MonoBehaviour {
-
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
+public class InputFireController : MonoBehaviour {
+	public InputCommunicate inputCommunicate;
+	public InputDirectCommunicate inputDirectCommunicate;
+	void FixedUpdate () {
+		if (inputCommunicate.onFire) {
+			inputDirectCommunicate.playerCommunicate.onShooting = true;
+		}
 	}
 }

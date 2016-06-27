@@ -12,5 +12,4 @@ public class PlayerCommunicate : MonoBehaviour {
 
 	public bool isDie = false;
 	public bool onShooting = false;
-
 }
