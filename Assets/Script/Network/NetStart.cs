@@ -20,9 +20,9 @@ public class NetStart : MonoBehaviour {
 			return x.startReading();
 		});
 
-//		readObv.Subscribe ((x) => {
-//			print("completed proto - " + x);
-//		});
+		readObv.Subscribe ((x) => {
+			print("completed proto - " + x);
+		});
 
 		socket.Subscribe ((x) => {
 			print("connect~");
