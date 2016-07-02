@@ -22,7 +22,7 @@ public class NetStart : MonoBehaviour {
 		});
 
 		readObv.Subscribe ((x) => {
-			print("completed proto - " + x.loaded);
+			print("completed proto - " + x.uuid + ";" + x.length + ";" + x.loaded.Bytes.GetString());
 		});
 
 		socket.Subscribe ((x) => {

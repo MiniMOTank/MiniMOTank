@@ -49,7 +49,6 @@ namespace Lorance.RxScoket.Session{
 
 //				Option<CompletedProto> protoOpt = Option<CompletedProto>.Empty;
 				Option<CompletedProto> protoOpt = lengthOpt.FlatMap<CompletedProto> ((lengthVal) => {
-					Package.Log ("222");
 					if (lengthVal.IsCompleted) {
 						int length = lengthVal.Value ();
 						if (length > maxLength) {
@@ -78,7 +77,6 @@ namespace Lorance.RxScoket.Session{
 				if (protoOpt is None<CompletedProto>) {
 					return completes;
 				} else {
-					Package.Log ("mpleted = (CompletedPro");
 					var completed = (CompletedProto)protoOpt.Get ();
 					if (completes.IsEmpty ()) {
 						var completedQueue = new Queue<CompletedProto> ();
@@ -189,7 +187,6 @@ namespace Lorance.RxScoket.Session{
 		}
 
 		private Option<byte> tryGetByte(ByteBuffer bf) {
-			Package.Log ("tryGetByte(ByteBuffer b");
 			if (bf.Remaining () >= 1)
 				return new Some<byte> (bf.Get ());
 			else 
