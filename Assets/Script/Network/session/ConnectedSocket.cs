@@ -71,6 +71,7 @@ namespace Lorance.RxScoket.Session {
 						// Read data from the remote device.
 						int bytesRead = client.EndReceive(ar);
 						if (bytesRead > 0) {
+							readAttach.byteBuffer.Position = bytesRead;
 							f.completeWith(() => readAttach);
 						}
 					} catch (Exception e) {

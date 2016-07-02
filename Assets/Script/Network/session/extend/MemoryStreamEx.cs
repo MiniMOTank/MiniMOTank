@@ -12,12 +12,20 @@ namespace Lorance.RxScoket.Session
 		private int mark = -1;
 		public byte[] Bytes{get{return src;}}
 
-		public int Position{get{ return position;}}
+		public int Position{
+			get{ return position;}
+			set{ //difference with java ByteBuffer which return `this`
+				if ((value > limit) || (value < 0))
+					throw new IllegalArgumentException ();
+				position = value;
+				if (mark > position) mark = -1;
+			}
+		}
 
 		public ByteBuffer(byte[] src){
 			this.src = src;
 			capacity = src.Length;
-			position = src.Length; //different with java's bytebuffer.
+			position = 0;
 			limit = src.Length;
 		}
 
@@ -108,5 +116,6 @@ namespace Lorance.RxScoket.Session
 
 	public class BufferUnderflowException: RuntimeException{}
 	public class BufferOverflowException: RuntimeException{}
+	public class IllegalArgumentException:RuntimeException {}
 }
 

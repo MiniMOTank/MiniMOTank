@@ -5,6 +5,7 @@ using System.Net.Sockets;
 
 namespace Lorance.RxScoket.Session {
 	public class Attachment {
+//		public byte[] bytes;//ByteBuffer byteBuffer;
 		public ByteBuffer byteBuffer;
 		public Socket client;
 
