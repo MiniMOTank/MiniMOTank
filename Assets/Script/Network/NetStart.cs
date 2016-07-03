@@ -14,7 +14,6 @@ public class NetStart : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		Package.s_level = 100;
-//		AsynchronousClient.StartClient();
 		client = new ClientEntrance("localhost", 10127);
 		socket = client.Connect();
 		readObv = socket.SelectMany ((x) => {
